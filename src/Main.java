@@ -4,25 +4,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SymbolInStringSearcher ss = null;
+        StringUtils ss = null;
         Scanner in = new Scanner(System.in);
         char symbol;// = ' ';
         String inputString;
-        boolean searchingSymbolIsGood;
+        boolean isSymbolAccepted;
 
         do{
             System.out.print("Input searching symbol: ");
             inputString = in.nextLine();
-            searchingSymbolIsGood = (inputString.length() == 1);
-            if(!searchingSymbolIsGood){
+            isSymbolAccepted = (inputString.length() == 1);
+            if(!isSymbolAccepted){
                 System.out.println("Needed only one symbol. Try another one.");
             }
             else{
                 symbol = inputString.toCharArray()[0];
-                ss = new SymbolInStringSearcher(symbol);
+                ss = new StringUtils(symbol);
             }
         }
-        while (!searchingSymbolIsGood);
+        while (!isSymbolAccepted);
 
         System.out.print("Input string: ");
         String s = in.nextLine();
