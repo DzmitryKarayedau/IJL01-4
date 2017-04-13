@@ -15,10 +15,6 @@ public class StringUtils {
 
     }
 
-    public char getCharToSearch() {
-        return charToSearch;
-    }
-
     public String returnStringBeforeSearchSymbol(String s) {
         if (s == null) {
             logger.warning("String is null");
@@ -45,5 +41,8 @@ public class StringUtils {
         }
     }
 
+    public char getCharToSearch() {
+        return charToSearch;
+    }
 
 }
