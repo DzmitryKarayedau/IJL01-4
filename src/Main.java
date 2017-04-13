@@ -4,9 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        StringUtils ss = null;
         Scanner in = new Scanner(System.in);
-        char symbol;// = ' ';
+        char symbol = ' ';
         String inputString;
         boolean isSymbolAccepted;
 
@@ -19,19 +18,17 @@ public class Main {
             }
             else{
                 symbol = inputString.toCharArray()[0];
-                ss = new StringUtils(symbol);
             }
         }
         while (!isSymbolAccepted);
 
         System.out.print("Input string: ");
-        String s = in.nextLine();
+        inputString = in.nextLine();
 
-        char[] c = s.toCharArray();
+        char[] charArray = inputString.toCharArray();
 
-        System.out.println("String before symbol: " + ss.returnStringBeforeSearchSymbol(s));
-        System.out.println("Chars before symbol: " + ss.returnStringBeforeSearchSymbol(c));
-
+        System.out.println("String before symbol: " + StringUtils.returnStringBeforeSymbol(inputString,symbol));
+        System.out.println("Chars before symbol: " + StringUtils.returnStringBeforeSymbol(charArray,symbol));
 
     }
 }
