@@ -4,45 +4,29 @@ import java.util.logging.Logger;
  * Created by dzmitry.karayedau on 12-Apr-17.
  */
 public class StringUtils {
-    private char charToSearch;
-    private String outputString;
-    private char[] inputChars;
 
-    private Logger logger = Logger.getLogger(this.getClass().getName());
+    private static final Logger logger = Logger.getLogger(StringUtils.class.toString());
 
-    public StringUtils(char charToSearch) {
-        this.charToSearch = charToSearch;
-
-    }
-
-    public String returnStringBeforeSearchSymbol(String s) {
-        if (s == null) {
-            logger.warning("String is null");
-            return null;
-        }
-        int index = s.indexOf(charToSearch);
-        if (index >= 0) {
-            return s.substring(0, index);
-        } else {
-            logger.info("There is no needed symbol in the string");
-            return s;
-        }
-    }
-
-    public String returnStringBeforeSearchSymbol(char... c) {
-        String returnedString;
-        if (c == null){
-            logger.warning("String is null");
+    public static String returnStringBeforeSymbol(String inputString , char searchSymbol){
+        if (inputString == null){
+            logger.info("String is null");
             return null;
         }
         else{
-            String s = new String(c);
-            return this.returnStringBeforeSearchSymbol(s);
+            int index = inputString.indexOf(searchSymbol);
+            if (index >= 0) {
+                return inputString.substring(0, index);
+            } else {
+                logger.info("There is no needed symbol in the string");
+                return inputString;
+            }
         }
     }
 
-    public char getCharToSearch() {
-        return charToSearch;
+
+    public static String returnStringBeforeSymbol(char[] inputChars , char searchSymbol){
+        return returnStringBeforeSymbol(new String(inputChars),searchSymbol);
     }
+
 
 }
