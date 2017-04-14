@@ -1,3 +1,5 @@
+package com.emerline.ijl01_4.utils;
+
 import java.util.logging.Logger;
 
 /**
