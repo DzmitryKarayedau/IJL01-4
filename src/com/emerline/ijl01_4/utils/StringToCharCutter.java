@@ -5,20 +5,15 @@ import java.util.logging.Logger;
 /**
  * Created by dzmitry.karayedau on 12-Apr-17.
  */
-public class StringUtils {
+public class StringToCharCutter {
 
-    private static final Logger logger = Logger.getLogger(StringUtils.class.toString());
+    private static final Logger logger = Logger.getLogger(StringToCharCutter.class.toString());
 
     private char searchSymbol;
 
-    public boolean checkSymbol(char checkedSymbol) {
-        if (checkedSymbol == searchSymbol) {
-            return true;
-        } else {
-            return false;
-        }
+    public StringToCharCutter(char searchSymbol) {
+        this.searchSymbol = searchSymbol;
     }
-
 
     public String returnStringBeforeSymbol(String inputString) {
         if (inputString == null) {
@@ -40,14 +35,8 @@ public class StringUtils {
         return returnStringBeforeSymbol(new String(inputChars));
     }
 
-
     public char getSearchSymbol() {
         return searchSymbol;
     }
-
-    public void setSearchSymbol(char searchSymbol) {
-        this.searchSymbol = searchSymbol;
-    }
-
 
 }
