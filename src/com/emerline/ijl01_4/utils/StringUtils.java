@@ -9,12 +9,22 @@ public class StringUtils {
 
     private static final Logger logger = Logger.getLogger(StringUtils.class.toString());
 
-    public static String returnStringBeforeSymbol(String inputString , char searchSymbol){
-        if (inputString == null){
+    private char searchSymbol;
+
+    public boolean checkSymbol(char checkedSymbol) {
+        if (checkedSymbol == searchSymbol) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public String returnStringBeforeSymbol(String inputString) {
+        if (inputString == null) {
             logger.info("String is null");
             return null;
-        }
-        else{
+        } else {
             int index = inputString.indexOf(searchSymbol);
             if (index >= 0) {
                 return inputString.substring(0, index);
@@ -26,8 +36,17 @@ public class StringUtils {
     }
 
 
-    public static String returnStringBeforeSymbol(char[] inputChars , char searchSymbol){
-        return returnStringBeforeSymbol(new String(inputChars),searchSymbol);
+    public String returnStringBeforeSymbol(char[] inputChars) {
+        return returnStringBeforeSymbol(new String(inputChars));
+    }
+
+
+    public char getSearchSymbol() {
+        return searchSymbol;
+    }
+
+    public void setSearchSymbol(char searchSymbol) {
+        this.searchSymbol = searchSymbol;
     }
 
 

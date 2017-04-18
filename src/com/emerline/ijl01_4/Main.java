@@ -2,6 +2,9 @@ package com.emerline.ijl01_4;
 
 import com.emerline.ijl01_4.utils.StringUtils;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -9,9 +12,11 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        char symbol = ' ';
         String inputString;
         boolean isSymbolAccepted;
+        StringUtils stringUtils = new StringUtils();
+        String fileDestination = "C:\\TestStrings.txt";
+
 
         do {
             System.out.print("Input searching symbol: ");
@@ -20,7 +25,7 @@ public class Main {
             if (!isSymbolAccepted) {
                 System.out.println("Needed only one symbol. Try another one.");
             } else {
-                symbol = inputString.toCharArray()[0];
+                stringUtils.setSearchSymbol(inputString.toCharArray()[0]);
             }
         }
         while (!isSymbolAccepted);
@@ -30,8 +35,20 @@ public class Main {
 
         char[] charArray = inputString.toCharArray();
 
-        System.out.printf("String before symbol: %s%n", StringUtils.returnStringBeforeSymbol(inputString, symbol));
-        System.out.printf("Chars before symbol: %s%n", StringUtils.returnStringBeforeSymbol(charArray, symbol));
+        System.out.printf("String before symbol: %s%n", stringUtils.returnStringBeforeSymbol(inputString));
+        System.out.printf("Chars before symbol: %s%n", stringUtils.returnStringBeforeSymbol(charArray));
 
+        try (BufferedReader bufferReader = new BufferedReader(new FileReader(fileDestination))) {
+            int c;
+            System.out.printf("String from file: %s%n", fileDestination);
+            while ((c = bufferReader.read()) != -1) {
+                System.out.print((char) c);
+                if (stringUtils.checkSymbol((char) c)) {
+                    break;
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
