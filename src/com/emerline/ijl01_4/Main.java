@@ -9,18 +9,18 @@ public class Main {
 
         String fileDestination = "C:\\TestStrings.txt";
 
-        char searchSymbol = ConsoleHelperUtil.returnSearchSymbol();
+        char searchSymbol = ConsoleHelperUtil.searchSymbol();
         StringToCharCutter stringToCharCutter = new StringToCharCutter(searchSymbol);
 
-        String inputString = ConsoleHelperUtil.returnInputString();
+        String inputString = ConsoleHelperUtil.inputString();
         char[] charArray = inputString.toCharArray();
 
-        System.out.printf("String before symbol: %s%n", stringToCharCutter.returnStringBeforeSymbol(inputString));
-        System.out.printf("Chars before symbol: %s%n", stringToCharCutter.returnStringBeforeSymbol(charArray));
+        System.out.printf("String before symbol: %s%n", stringToCharCutter.stringBeforeSymbol(inputString));
+        System.out.printf("Chars before symbol: %s%n", stringToCharCutter.stringBeforeSymbol(charArray));
 
-        inputString = ConsoleHelperUtil.returnStringFromFile(fileDestination);
+        inputString = ConsoleHelperUtil.stringFromFile(fileDestination);
 
-        System.out.printf("String before symbol: %s%n", stringToCharCutter.returnStringBeforeSymbol(inputString));
+        System.out.printf("String before symbol: %s%n", stringToCharCutter.stringBeforeSymbol(inputString));
 
     }
 

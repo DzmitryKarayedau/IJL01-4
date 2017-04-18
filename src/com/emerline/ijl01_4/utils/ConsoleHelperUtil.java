@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class ConsoleHelperUtil {
 
-    public static char returnSearchSymbol() {
+    public static char searchSymbol() {
         Scanner in = new Scanner(System.in);
         String inputString;
         boolean isSymbolAccepted;
@@ -27,13 +27,13 @@ public class ConsoleHelperUtil {
         return inputString.toCharArray()[0];
     }
 
-    public static String returnInputString() {
+    public static String inputString() {
         Scanner in = new Scanner(System.in);
         System.out.print("Input string: ");
         return in.nextLine();
     }
 
-    public static String returnStringFromFile(String filePath) {
+    public static String stringFromFile(String filePath) {
         StringBuilder stringBuilder = new StringBuilder();
         try (BufferedReader bufferReader = new BufferedReader(new FileReader(filePath))) {
             int c;

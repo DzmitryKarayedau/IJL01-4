@@ -15,7 +15,7 @@ public class StringToCharCutter {
         this.searchSymbol = searchSymbol;
     }
 
-    public String returnStringBeforeSymbol(String inputString) {
+    public String stringBeforeSymbol(String inputString) {
         if (inputString == null) {
             logger.info("String is null");
             return null;
@@ -31,8 +31,8 @@ public class StringToCharCutter {
     }
 
 
-    public String returnStringBeforeSymbol(char[] inputChars) {
-        return returnStringBeforeSymbol(new String(inputChars));
+    public String stringBeforeSymbol(char[] inputChars) {
+        return stringBeforeSymbol(new String(inputChars));
     }
 
     public char getSearchSymbol() {
